@@ -1,7 +1,18 @@
 <h1>New Game 🦄</h1>
 
-<ul>
-  <% @arr.each do |letter| %>
- <li> <%= letter %></li>
- <% end %>
-</ul>
+<div class="list">
+  <div class="table">
+    <ul id="horizontal-list">
+      <% @arr.each do |letter| %>
+      <li> <%= letter %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<p>What is the longest word you can find?</p>
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="wordy">
+  <input type="submit" name="submit" value="Play!">
+</form>
